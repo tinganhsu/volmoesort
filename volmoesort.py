@@ -27,4 +27,4 @@ for i in range(1,total+1):
  os.rename(path+last, path+newfilename)
  fp.close()
  #print(fp.readlines())
-os.rename(path+'/cover.jpg', path+'/00.jpg')
+os.rename(path+'/'+DIR+'cover.jpg', path+'/'+DIR+'00.jpg')
