@@ -43,24 +43,21 @@ for i in filenames: # loop through all the files and folders to find epub
 		#print(i[:-5])
 		#os.system('pause')
 		with zipfile.ZipFile(open(i, 'rb')) as f:
-			f.extractall(i[:-5])
-#print("epub: "+result)
+			f.extractall(i[9:-11])  #extract and remove [vol.moe] and .kepub.epub in folder names
 
-
-#os.system('pause')
+# 重新取得資料夾清單
 filenames = os.listdir()
 folderlist = []
 for i in filenames: # loop through all the files and folders
     if os.path.isdir(os.path.join(os.path.abspath("."), i)): # check whether the current object is a folder or not
         folderlist.append(i)
 print(folderlist)
-#os.system('pause')
 for i in folderlist:
-	#print(current+'/'+i)
+	#進到子資料夾後執行改名程式
 	os.chdir(current+'/'+i)
 	print(os.getcwd())
 	#os.system('pause')
+	#自動更名
 	volmoesort()
+	#回到上一層
 	os.chdir(current)
-
-
