@@ -21,15 +21,27 @@ def volmoesort():
 		#利用正規表現式在html中尋找jpg的位置
 		imgRe = re.compile(r'src="(.+?\.jpg)"')
 		imageUrl = imgRe.findall(str(html))
+		png = 0
+		if (len(imageUrl) == 0):
+			imgRe = re.compile(r'src="(.+?\.png)"')  #如果找不到jpg就找png
+			imageUrl = imgRe.findall(str(html))
+			png = 1
+		
+		#print(imageUrl)
+		#os.system('pause')
 		#把前面的..拿掉
 		last = "".join(imageUrl)[2:]
 		#last = last[2:]
 		#加上路徑以免跑掉
-		newfilename = '/'+DIR+str(i)+'.jpg'
+		if png == 0:
+			newfilename = '/'+DIR+str(i)+'.jpg'
+		else:
+			newfilename = '/'+DIR+str(i)+'.png'
 		#print(last)
 		#print(newfilename)
 		os.rename(path+last, path+newfilename)
 		fp.close()
+		png = 0
 		
 		
 
