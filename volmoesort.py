@@ -11,8 +11,11 @@ def volmoesort():
 	#扣掉cover和madeby這兩張
 	total = total-2
 	#print(total)
-	#cover to 00.jpg
-	os.rename(path+'/'+DIR+'cover.jpg', path+'/'+DIR+'00.jpg')
+	#cover.jpg to 00.jpg, 如果沒有jpg就找png
+	if os.path.isfile(path+'/'+DIR+'cover.jpg'):
+		os.rename(path+'/'+DIR+'cover.jpg', path+'/'+DIR+'00.jpg')
+	else:
+		os.rename(path+'/'+DIR+'cover.png', path+'/'+DIR+'00.png')
 	for i in range(1,total+1):
 		filename = 'html/'+str(i)+'.html'
 		fp = open(filename, 'r', encoding = 'utf8')
