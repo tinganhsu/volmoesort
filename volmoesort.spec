@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['volmoesort.py'],
-             pathex=['D:\\tinganhsu\\Documents\\GitHub\\volmoesort'],
+             pathex=['D:\\Tinganhsu\\Documents\\GitHub\\volmoesort'],
              binaries=[],
              datas=[],
              hiddenimports=[],
